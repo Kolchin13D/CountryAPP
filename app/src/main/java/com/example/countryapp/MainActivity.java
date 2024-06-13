@@ -8,8 +8,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.example.countryapp.adapters.CountryAdapter;
 import com.example.countryapp.model.CountryModel;
 import com.example.countryapp.model.Result;
 import com.example.countryapp.service.GetCountryDataService;
@@ -25,6 +27,8 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<CountryModel> countries;
+    private RecyclerView recyclerView;
+    private CountryAdapter countryAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +48,9 @@ public class MainActivity extends AppCompatActivity {
     private Object GetCountries() {
 
         GetCountryDataService getCountryDataService = RetrofitInstance.getCountryDataService();
-        Call<Result> resultCall = getCountryDataService.getResult();
+        Call<Result> call = getCountryDataService.getResult();
 
-        resultCall.enqueue(new Callback<Result>() {
+        call.enqueue(new Callback<Result>() {
             @Override
             public void onResponse(Call<Result> call, Response<Result> response) {
                 Result result = response.body();
@@ -55,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
                     countries = (ArrayList<CountryModel>) result.getResult();
 
                     for(CountryModel c: countries){
-                        Log.i("TAG", ""+ c.getName());
+                        //Log.i("TAG", ""+ c.getName());
+
                     }
                 }
             }

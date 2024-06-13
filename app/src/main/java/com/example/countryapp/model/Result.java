@@ -1,4 +1,4 @@
-package com.example.countryname.model;
+package com.example.countryapp.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

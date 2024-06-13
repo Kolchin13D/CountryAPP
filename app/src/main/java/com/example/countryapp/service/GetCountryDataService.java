@@ -1,6 +1,6 @@
-package com.example.countryname.service;
+package com.example.countryapp.service;
 
-import com.example.countryname.model.Result;
+import com.example.countryapp.model.Result;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

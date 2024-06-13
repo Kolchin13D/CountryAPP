@@ -1,4 +1,4 @@
-package com.example.countryname.service;
+package com.example.countryapp.service;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
