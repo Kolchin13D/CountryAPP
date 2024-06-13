@@ -1,13 +1,17 @@
 package com.example.countryapp;
 
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
+import android.view.View;
+import android.webkit.WebViewDatabase;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
@@ -62,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
                         //Log.i("TAG", ""+ c.getName());
 
                     }
+
+                    ViewData();
                 }
             }
 
@@ -72,5 +78,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         return countries;
+    }
+
+    private void ViewData() {
+        recyclerView = findViewById(R.id.recyclerView);
+        countryAdapter = new CountryAdapter(countries);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(countryAdapter);
     }
 }
