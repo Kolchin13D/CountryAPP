@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private CountryAdapter countryAdapter;
 
+    // USE VPN FOR TESTING, RUSSIA WAS BLOCKED
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
